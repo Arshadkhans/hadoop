@@ -52,6 +52,9 @@ beeline -u "jdbc:hive2://${HIVESERVER2}:10000/${BKOPTS}${BTOPTS}" -e 'INSERT INT
 
 # Query hive table
 beeline -u "jdbc:hive2://${HIVESERVER2}:10000/${BKOPTS}${BTOPTS}" -e 'SELECT * FROM default.test WHERE id=1;'
+
+beeline -u "jdbc:hive2://${HIVESERVER2}:10000/${BKOPTS}" --hiveconf hive.execution.engine=spark -e 'SELECT * FROM default.test WHERE id=1;'
+
 HBase
 Create a table and query it.
 
